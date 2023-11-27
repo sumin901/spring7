@@ -1,0 +1,15 @@
+package com.itwillbs.web;
+
+/**
+ *	mysql데이터베이스 연결을 테스트하기위한 클래스
+ */
+public class MysqlConnectTest {
+
+	// DB 연결정보
+	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+	private static final String 
+	private static final String
+	private static final String
+	private static final String
+	
+}
