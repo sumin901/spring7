@@ -20,12 +20,16 @@ public class MyBatisTest {
 	@Inject
 	private SqlSessionFactory sqlFactory; // root-context에서 SqlSessionFactoryBean으로 
 										  // 받아왔는데 SqlSessionFactory을 업캐스팅해서 사용한다
+	@Inject
+	private SqlSession SqlSession;
 	@Test
 	public void mybatis테스트() {
 		
 		System.out.println(sqlFactory);
+		System.out.println(SqlSession);
 //		SqlSession session = sqlFactory.openSession();
 //		session.insert(statement);
+		
 	}
 		
 }

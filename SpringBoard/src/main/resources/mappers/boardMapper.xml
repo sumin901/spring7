@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.itwillbs.mapper.BoardMapper">
+  
+  <!-- 글쓰기 -->
+  <insert id="write">
+  	insert into tbl_board (title, contents, writer) values (#{title}, #{contents}, #{writer})
+  </insert>
+  <!-- 글쓰기 -->
+
+  <!-- 모든 글 조회 -->
+  <select id="getListALL" resultType="BoardVO">
+  	select * from tbl_board
+  </select>
+  
+  <!-- bno 글 조회 -->
+  <select id="getBoard" resultType="BoardVO">
+  	select * from tbl_board where bno = #{bno}
+  </select>
+  </mapper>
+  
