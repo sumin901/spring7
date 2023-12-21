@@ -54,6 +54,13 @@
 		
 		var formObj = $('form[role="form"]'); // 태그 자체도 객체다
 		
+		// 삭제 버튼 클릭 시 해당 글 삭제
+		$(".btn-danger").click(function() {
+			console.log("삭제");
+			formObj.attr("action","/board/delete");
+			formObj.submit();
+		});
+		
 		// 수정 버튼 클릭 시, 글 번호 정보를 submit
 		// 이동하는 페이지 주소 변경, 전달방식 변경 (POST->GET)
 		

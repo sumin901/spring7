@@ -5,6 +5,17 @@
   
   <mapper namespace="com.itwillbs.mapper.BoardMapper">
   
+  <!-- property명과 column명이 같을 경우 생략 가능 -->
+  <!-- DB column과 도메인 객체 맵핑 -->
+  <resultMap type="com.itwillbs.domain.BoardVO" id="board">
+  	<result property="bno" column="bno"/>
+  	<result property="title" column="title"/>
+  	<result property="contents" column="contents"/>
+  	<result property="writer" column="writer"/>
+  	<result property="regdate" column="regdate"/>
+  	<result property="viewcnt" column="viewcnt"/>
+  </resultMap>
+  
   <!-- 글쓰기 -->
   <insert id="write">
   	insert into tbl_board (title, contents, writer) values (#{title}, #{contents}, #{writer})
@@ -20,5 +31,29 @@
   <select id="getBoard" resultType="BoardVO">
   	select * from tbl_board where bno = #{bno}
   </select>
+  
+  <!-- bno 글 수정 -->
+  <update id="updateBoard">
+  	update tbl_board set title = #{title}, contents = #{contents}, writer = #{writer}, regdate = now() 
+  	where bno = #{bno}
+  </update>
+  
+  <!-- bno 조회수 증가 -->
+  <update id="updateViewcnt">
+  	update tbl_board set viewcnt=viewcnt+1 where bno = #{bno}
+  </update>
+  
+  <!-- bno 글 삭제 -->
+  <delete id="deleteBoard">
+  	delete from tbl_board where bno = #{bno}
+  </delete>
+  
+   <!-- 글 조회(페이징) -->
+  <select id="getListPage" resultType="BoardVO" resultMap="board">
+  	select * from tbl_board 
+  	order by bno ASC, regdate ASC 
+  	limit #{startPage},#{pageSize}
+  </select>
+  
   </mapper>
   

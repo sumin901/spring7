@@ -11,6 +11,9 @@
 	</appender>
 	
 	<!-- Application Loggers -->
+	<logger name="com.itwillbs.exception">
+		<level value="debug" />
+	</logger>
 	<logger name="com.itwillbs.controller">
 		<level value="debug" />
 	</logger>

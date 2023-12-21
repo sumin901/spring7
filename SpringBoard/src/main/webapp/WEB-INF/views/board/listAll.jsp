@@ -5,6 +5,7 @@
 
 <h1>/board/listAll.jsp</h1>
 
+${pvo }
 ${result }
 
 <script>
@@ -12,6 +13,12 @@ ${result }
 	var result = "${result}";
 	if(result == "CREATED") {
 		alert("글쓰기 완료");
+	}
+	if(result == "modified") {
+		alert("수정 완료");
+	}
+	if(result =="deleted") {
+		alert("삭제 완료");
 	}
 </script>
 
@@ -51,11 +58,11 @@ ${result }
 
 <div class="box-footer clearfix">
 	<ul class="pagination pagination-sm no-margin pull-right">
-		<li><a href="#">«</a></li>
-		<li><a href="#">1</a></li>
-		<li><a href="#">2</a></li>
-		<li><a href="#">3</a></li>
-		<li><a href="#">»</a></li>
+		<li><a href="#">이전</a></li>
+		<c:forEach var="i" begin="${pvo.startPage }" end="${pvo.endPage }" step="1">
+			<li><a href="/board/listPage?page=${i }">${i }</a></li>
+		</c:forEach>
+		<li><a href="#">다음</a></li>
 	</ul>
 </div>
 

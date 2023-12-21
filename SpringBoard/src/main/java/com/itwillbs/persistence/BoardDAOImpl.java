@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.domain.Criteria;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -38,6 +39,44 @@ public class BoardDAOImpl implements BoardDAO {
 		logger.debug("dddddd, getBoard() 호출");
 		
 		return sqlsession.selectOne(NAMESPACE+".getBoard", bno);
+	}
+
+	@Override
+	public void updateBoard(BoardVO bvo) throws Exception {
+		logger.debug("dd : updateBoard() 호출");
+		sqlsession.update(NAMESPACE+".updateBoard", bvo);
+		
+	}
+
+	@Override
+	public void updateViewcnt(int bno) throws Exception {
+		logger.debug("dd : updateViewcnt 호출");
+		sqlsession.update(NAMESPACE+".updateViewcnt", bno);
+		
+	}
+
+	@Override
+	public void deleteBoard(int bno) throws Exception {
+		logger.debug("dd : deleteBoard 호출");
+		sqlsession.delete(NAMESPACE+".deleteBoard", bno);
+	}
+
+	@Override
+	public List<BoardVO> getBoardListPage(int page) throws Exception {
+		logger.debug("dd : getBoardListPage 호출");
+		
+		// 페이징처리 계산
+		// page 1 => 1~10, page 2 => 11~20
+		//		  => 0,10		  => 10,10
+		page = (page - 1)*10;
+		
+		return sqlsession.selectList(NAMESPACE+".getListPage", page);
+	}
+
+	@Override
+	public List<BoardVO> getBoardListPage(Criteria cri) throws Exception {
+		logger.debug("dd : getBoardListPage(Criteria cri) 호출");
+		return sqlsession.selectList(NAMESPACE+".getListPage", cri);
 	}
 	
 	
