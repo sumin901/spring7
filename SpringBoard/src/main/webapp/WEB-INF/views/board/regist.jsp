@@ -25,7 +25,7 @@
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">내  용</label>
-				<textarea class="form-control" rows="3" placeholder="내용을 입력하세요" name="contents"></textarea>
+				<textarea class="form-control" rows="3" placeholder="내용을 입력하세요" name="content"></textarea>
 			</div>
 
 		</div>

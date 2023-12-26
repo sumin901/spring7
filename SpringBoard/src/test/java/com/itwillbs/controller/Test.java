@@ -44,7 +44,7 @@ public class Test {
 			cri.setPage(4);
 			cri.setPageSize(20);
 			for(BoardVO bvo : bdao.getBoardListPage(cri)) {
-				logger.debug(bvo.getBno() + "//" + bvo.getTitle() + "//" +bvo.getContents());
+//				logger.debug(bvo.getBno() + "//" + bvo.getTitle() + "//" +bvo.getContents());
 			}
 			logger.debug("-----------------------");
 		} catch (Exception e) {

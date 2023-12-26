@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
    
@@ -317,11 +318,11 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>게시판</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/board/regist"><i class="fa fa-circle-o"></i> 글쓰기</a></li>
-                <li><a href="/board/listAll"><i class="fa fa-circle-o"></i> 글목록</a></li>
+                <li><a href="/board/regist"><i class="fa fa-circle-o"></i> 글쓰기 </a></li>
+                <li><a href="/board/listAll"><i class="fa fa-circle-o"></i> 리스트 </a></li>
               </ul>
             </li>
             <li class="treeview">

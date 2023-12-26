@@ -10,68 +10,76 @@ import org.springframework.stereotype.Service;
 
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.Criteria;
-import com.itwillbs.persistence.BoardDAOImpl;
+import com.itwillbs.persistence.BoardDAO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 	
-	@Inject
-	private BoardDAOImpl bdao;
-	
 	private static final Logger logger = LoggerFactory.getLogger(BoardServiceImpl.class);
 	
+	@Inject
+	private BoardDAO bdao;
+	
 	@Override
-	public void write(BoardVO vo) throws Exception {
-		bdao.write(vo);
-		logger.debug("Service, vo = " + vo);
-		
+	public void boardWrite(BoardVO vo) throws Exception {
+		logger.debug(" S : boardWrite(BoardVO vo) ");
+		bdao.insertBoard(vo);		
 	}
 
 	@Override
-	public List<BoardVO> boardListALL() throws Exception {
-		logger.debug("Service, boardListALL() 호출 ");
-		List<BoardVO> bListALL = bdao.getBoardListALL();
-		logger.debug("Service, bListALL : " + bListALL);
-		return bListALL;
+	public List<BoardVO> boardListAll() throws Exception {
+		logger.debug(" S : boardListAll()");
+		return bdao.getBoardListAll();
 	}
 
 	@Override
 	public BoardVO getBoard(int bno) throws Exception {
-		logger.debug("sssssssss, getBoard() 호출");
-		
+		logger.debug(" S : getBoard(int bno) ");
 		return bdao.getBoard(bno);
 	}
 
 	@Override
-	public void updateBoard(BoardVO bvo) throws Exception {
-		logger.debug("ss : updateBoard() 호출");
-		bdao.updateBoard(bvo);
-		
+	public int boardModify(BoardVO vo) throws Exception {
+		logger.debug(" S : boardModify(BoardVO vo) ");
+		return bdao.updateBoard(vo);
 	}
 
 	@Override
-	public String updateViewcnt(int bno) throws Exception {
-		logger.debug("ss : updateViewcnt 호출 ");
-		bdao.updateViewcnt(bno);
-		return "조회수증가";
+	public void incrementViewCnt(int bno) throws Exception {
+		logger.debug(" S : incrementViewCnt(int bno) ");
+		bdao.updateViewCnt(bno);
 	}
 
 	@Override
-	public void deleteBoard(int bno) throws Exception {
-		logger.debug("ss : deleteBoard 호출");
+	public void boardRemove(int bno) throws Exception {
+		logger.debug(" S : boardRemove(int bno) ");
 		bdao.deleteBoard(bno);
-		
-		
 	}
 
 	@Override
 	public List<BoardVO> boardListPage(Criteria cri) throws Exception {
-		logger.debug("ss : boardListPage 호출");
+		logger.debug(" S : boardListPage(Criteria cri) ");
 		return bdao.getBoardListPage(cri);
+	}
+
+	@Override
+	public int totalBoardCount() throws Exception {
+		logger.debug(" S : totalBoardCount()  ");
+		return bdao.getBoardCount();
 	}
 	
 	
+	
+	
+	
+	
+	
 
+	
+	
+	
+	
+	
 	
 	
 }
