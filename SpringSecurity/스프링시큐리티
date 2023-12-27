@@ -15,7 +15,7 @@
 	
 	* 인증(Authentication) : 자신을 증명하는 것, 내가 다른사람에게 증명할 수 있는 무엇으로 인증한다.
 	
-		- 사용자 아이디 : 일반적으로 userID이지만 Security에서는 userName으로 지정함.
+		- 사용자 아이디 : 일반적으로 userID이지만 Security에서는 username으로 지정함.
 		- User : Spring Security에서 User는 인증 정보와 권한을 가진 객체이므로 MemberVO 객체를 이용하는것을 권장한다.
 				 -> 기존 User와의 혼동 방지.
 	

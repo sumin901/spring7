@@ -10,5 +10,6 @@
 <h1>admin.jsp</h1>
 <h2><a href="/sample/all">all</a></h2>
 <h2><a href="/sample/member">member</a></h2>
+<h2><a href="/logout">로그아웃</a></h2>
 </body>
 </html>

@@ -1,4 +1,6 @@
 INDEX VERSION 1.131
+D:\workspace_sts7\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1035313742.index
+\SpringSecurity\src\main\java
 D:\workspace_sts7\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\857584192.index
 \SpringMember\src\main\java
 D:\workspace_sts7\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4163534227.index
@@ -9,6 +11,8 @@ D:\workspace_sts7\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\40168452
 \SpringBoard\src\main\java
 D:\workspace_sts7\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3704491924.index
 \SpringStudy\src\main\java
+D:\workspace_sts7\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3792174128.index
+\SpringSecurity\src\main\java
 D:\workspace_sts7\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2027518742.index
 \SpringMember\src\main\java
 D:\workspace_sts7\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\299335866.index

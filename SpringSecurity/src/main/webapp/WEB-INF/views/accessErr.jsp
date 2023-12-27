@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>accessErr.jsp</h1>
-	
+	<h2>접근 제한 페이지</h2>
+	<h2>Access denied</h2>
 </body>
 </html>

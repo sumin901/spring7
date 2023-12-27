@@ -6,29 +6,39 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<bean id="customAccessDenied" class="com.itwillbs.security.CustomAccessDenieHandler"></bean>
-	
+	<bean id="customLoginSuccess" class="com.itwillbs.security.CustomLoginSuccessHandler"></bean>
+	<!-- <bean id="customNoopPasswordEncoder" class="com.itwillbs.security.CustomNoopPasswordEncoder" /> -->
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 	<security:http>
 		<security:intercept-url pattern="/sample/all" access="permitAll"/>
 		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
 		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
 		
 		<security:intercept-url pattern="/boards/*" access="hasRole('ROLE_ADMIN')"/>
-		<security:form-login login-page="/customLogin" />
+		<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess"/>
 		
 		<!-- <security:access-denied-handler error-page="/accessErr"/> -->
 		<security:access-denied-handler ref="customAccessDenied"/>
 		
+		<!-- 로그아웃 -->
+		<security:logout logout-url="/logout"/>		
 	</security:http>
-
 
 
 
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
+			
+			<security:jdbc-user-service data-source-ref="dataSource" />
+			<!-- 임시 비밀번호 인코더 객체
+			<security:password-encoder ref="customNoopPasswordEncoder"/> -->
+			<security:password-encoder ref="bcryptPasswordEncoder"/>
+		
+		
+	<!-- 		<security:user-service>
 				<security:user name="member" password="{noop}1234" authorities="ROLE_MEMBER"/>
 				<security:user name="admin" password="{noop}1234" authorities="ROLE_ADMIN, ROLE_MEMBER"/>
-			</security:user-service>
+			</security:user-service> -->
 		</security:authentication-provider>	
 	</security:authentication-manager>
 </beans>
