@@ -40,5 +40,26 @@ REST.txt
 	      
 	* @ResponseBody 	: Spring 3버전 지원
 	* @RestController	: Spring 4버전 지원      
-	  
+	
+	
+	
+	String을 제외한 기본형타입들의 리턴은 참조형 타입으로 리턴하는 것을 권장한다. (Wrapper Class 사용)
+	Json은 날짜 Timestamp, date 등을 지원하지않아서 String 타입으로 변경해서 사용해야 한다.
+	
+	기본적으로 객체를 리턴하면 JSON 타입으로 변환
+	=> 자바 직렬화 : 자바 시스템 내부에서 사용되는 데이터 형태(객체)에서 외부에서 사용되는 데이터 형태(JSON)로 변경하는 것
+	
+	// http://localhost:8088/sample/doF/100
+	@GetMapping(value = "/doF/{num}")
+	public String doF(@PathVariable("num") Integer num) {
+		logger.debug("doF 실행");
+		return "Hi, " + num;
+	}
+	
+	자바 역직렬화의 경우 POST 방식으로 해야하는 이유?
+	
+	@RequestBody : 
+	브라우저에서 전달받는 JSON 데이터를 특정 객체로 자동 변환
+	데이터가 반드시 HTTP 바디(메서드)에 포함되야한다. (GET 방식 사용할 수 없다)
+	
 	  
